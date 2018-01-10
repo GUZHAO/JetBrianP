@@ -24,13 +24,18 @@ for element, ele in zip(c_link, c_name):
         find('ul').get_text(',', strip=True).split(',')
     c_method = c_url.find('div', class_='col-md-12 col-lg-5').\
         find('ul').next_sibling.next_sibling.get_text(strip=True).split('\n')
-    c_data.append({'name': ele, 'link': url, 'ingredient': c_recipe, 'method': c_method})
-#    pprint(url), pprint(c_method)
+    c_method_enhanced = ''.join(c_method[:1])
+    c_data.append({'name': ele, 'link': url, 'ingredient': c_recipe, 'method': c_method_enhanced, 'Source': 'Death & Co'})
+#    pprint(url), pprint(c_method), pprint(c_method_enhanced)
 #print(c_data)
 
-#def data_to_mongo(c_data):
-client = pymongo.MongoClient('localhost', 27017)
-db = client.test
-col = db.cocktail
-result = col.insert_many(c_data)
-pprint(result)
+
+def data_to_mongo(data):
+    client = pymongo.MongoClient('localhost', 27017)
+    db = client.test
+    col = db.cocktail
+    result = col.insert_many(data)
+
+
+#data_to_mongo(c_data)
+
