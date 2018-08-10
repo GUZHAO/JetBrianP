@@ -27,7 +27,7 @@ for element, ele in zip(c_link, c_name):
     c_method_enhanced = ''.join(c_method[:1])
     c_data.append({'name': ele, 'link': url, 'ingredient': c_recipe, 'method': c_method_enhanced, 'Source': 'Death & Co'})
 #    pprint(url), pprint(c_method), pprint(c_method_enhanced)
-#print(c_data)
+print(c_data)
 
 
 def data_to_mongo(data):
