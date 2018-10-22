@@ -1,2 +1,2 @@
-# JetBrianP
-Mostly Python Code
+# python playground
+Mostly mssing with the code for fun
